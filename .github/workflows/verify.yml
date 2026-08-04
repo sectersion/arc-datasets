@@ -1,0 +1,25 @@
+name: Verify datasets
+
+on:
+  push:
+    branches: [main]
+    paths: ["**/*.arc"]
+  pull_request:
+    branches: [main]
+    paths: ["**/*.arc"]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: pip install numpy
+      - name: Find all .arc files
+        id: find
+        run: |
+          echo "files=$(find . -name '*.arc' -type f)" >> $GITHUB_OUTPUT
+      - name: Verify each .arc file
+        run: python verify.py
