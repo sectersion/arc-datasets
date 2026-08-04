@@ -3,10 +3,16 @@ name: Verify datasets
 on:
   push:
     branches: [main]
-    paths: ["**/*.arc"]
+    paths:
+      - "**/*.arc"
+      - "verify.py"
+      - ".github/workflows/verify.yml"
   pull_request:
     branches: [main]
-    paths: ["**/*.arc"]
+    paths:
+      - "**/*.arc"
+      - "verify.py"
+      - ".github/workflows/verify.yml"
 
 jobs:
   verify:
