@@ -16,10 +16,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.14"
-      - run: pip install numpy
-      - name: Find all .arc files
-        id: find
-        run: |
-          echo "files=$(find . -name '*.arc' -type f)" >> $GITHUB_OUTPUT
-      - name: Verify each .arc file
-        run: python verify.py
+      - run: pip install numpy openpyxl
+      - run: python verify.py
