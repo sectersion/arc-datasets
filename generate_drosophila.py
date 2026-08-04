@@ -19,7 +19,7 @@ from neurarc import ArcFile, save
 np.random.seed(42)
 
 NEURONS = 25_000
-SYNAPSES = 20_000_000
+SYNAPSES = 9_000_000
 
 print(f"Generating Drosophila hemibrain-like dataset: {NEURONS:,} neurons, {SYNAPSES:,} synapses")
 
